@@ -1,31 +1,83 @@
 <!-- LanguageSwitcher.vue -->
 <template>
-    <div>
-      <button @click="changeLanguage">Trocar Idioma</button>
+  <div>
+    <div class="custom-dropdown">
+      <div class="dropdown-header" @click="toggleDropdown">
+        {{ lingugemAtual }}
+      </div>
+      <div v-if="dropdownOpen" class="dropdown-options">
+        <div @click="alterarLinguagem('Português-BR')">Português-BR</div>
+        <div @click="alterarLinguagem('English-US')">English-US</div>
+        <div @click="alterarLinguagem('Espanõl-ES')">Espanõl-ES</div>
+      </div>
     </div>
+  </div>
   </template>
   
   <script lang="ts">
   import { defineComponent, ref } from 'vue';
   import { useI18n } from 'vue-i18n';
-  
-  
+
   export default defineComponent({
     name: 'LanguageSwitcher',
     setup() {
     const i18n = useI18n();
-    const currentLocale = ref(i18n.locale.value);
-
-    const changeLanguage = () => {
+    const lingugemAtual = ref(i18n.locale.value);
+   
+    const alterarLinguagem = (novoValor: string) => {
       // Lógica para alternar para o próximo idioma
-      const nextLocale = currentLocale.value === 'pt-br' ? 'en-us' : 'pt-br';
+      const proxLinguagem = novoValor
+      i18n.locale.value = proxLinguagem;
+      lingugemAtual.value = proxLinguagem;
+      console.log('funcionou',  proxLinguagem ,lingugemAtual)
+      dropdownOpen.value = false;
+      
+    }
 
-      i18n.locale.value = nextLocale;
-      currentLocale.value = nextLocale;
+    const dropdownOpen = ref(false);
+
+    const toggleDropdown = () => {
+      dropdownOpen.value = !dropdownOpen.value;
     };
 
-    return { changeLanguage };
+    return { alterarLinguagem, lingugemAtual, dropdownOpen, toggleDropdown};
   },
   });
   </script>
+
+
+<style scoped>
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-header {
+  cursor: pointer;
+  padding: 8px;
+  background-color: #eee;
+}
+
+.dropdown-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-options div {
+  padding: 8px;
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+}
+
+.dropdown-options div:hover {
+  background-color: #f0f0f0;
+}
+</style>
   

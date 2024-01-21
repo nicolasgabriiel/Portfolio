@@ -1,4 +1,51 @@
-# portf
+# Portfólio
+
+### Desenvolvimento do Projeto
+
+- [ ] Criar Barra de Navegação no Cabeçalho
+- [ ] Criar Lógica na Troca de Idiomas
+- [ ] Montar Espaço Home
+- [ ] Montar Espaço Sobre
+- [ ] Montar Espaço Habilidades
+- [ ] Criar Botão para ver projetos
+- [ ] Criar Componente dos Projetos
+- [ ] Criar Rodapé de Contato
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Project setup
 ```
