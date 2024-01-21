@@ -54,20 +54,28 @@
 
 .dropdown-header {
   cursor: pointer;
-  padding: 8px;
-  background-color: #eee;
+  padding: 8px 20px;
+  background-color: transparent;
+  color: white;
+  font-size: 18px;
+  border: 2px solid white;
+  font-weight: bold;
 }
 
 .dropdown-options {
+  width: 100%;
   position: absolute;
   top: 100%;
   left: 0;
   background-color: #fff;
   border: 1px solid #ccc;
-  max-height: 150px;
+  max-height: 200px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  font-size: 16px;
+  color: black;
+  font-weight: bold;
 }
 
 .dropdown-options div {
