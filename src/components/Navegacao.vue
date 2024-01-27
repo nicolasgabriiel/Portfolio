@@ -44,9 +44,13 @@ export default defineComponent({
     margin: 0 20px;
     cursor: pointer;
     font-weight: bold;
+    padding-bottom: 10px;
 }
 .nav button:hover{
     color: rgb(171, 80, 255);
+    border-bottom: 7px solid  rgb(171, 80, 255);
+    margin-top: 7px ;
+
 }
 .icon-ng{
     padding: 20px 0px;
